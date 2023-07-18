@@ -1,0 +1,21 @@
+@import './fonts';
+
+body {
+    color: $color-onyx;
+    font-family: $font-open-sans;
+}
+
+a {
+    text-decoration: none;
+    color: $color-onyx;
+}
+
+.section {
+    width: 100vw;
+}
+
+.container {
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+}

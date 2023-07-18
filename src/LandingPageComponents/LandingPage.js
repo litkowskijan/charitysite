@@ -8,7 +8,7 @@ import About from './About/About';
 import Charities from './Charities/Charities';
 import Contact from './Contact/Contact'; 
 
-function App() {
+function LandingPage() {
   return (
     <>
       <Navbar />
@@ -22,4 +22,4 @@ function App() {
   );
 }
 
-export default App;
+export default LandingPage;

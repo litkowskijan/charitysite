@@ -2,6 +2,7 @@
 @import './SettingsSCSS/fonts';
 @import './SettingsSCSS/colors';
 @import './SettingsSCSS/mixins';
+@import './SettingsSCSS/basestyles';
 
 @import './LandingPageComponents/About/about';
 @import './LandingPageComponents/Charities/charities';
@@ -10,3 +11,6 @@
 @import './LandingPageComponents/Instruction/instruction';
 @import './LandingPageComponents/Navbar/navbar';
 @import './LandingPageComponents/Statistics/statistics';
+
+@import './LoginPageComponents/Login/login';
+@import './RegisterPageComponents/Register/register';

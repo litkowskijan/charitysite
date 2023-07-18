@@ -1,0 +1,97 @@
+.login__section {
+
+    .login__container {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+
+        padding-top: 160px;
+
+        @include laptop {
+            padding-top: 200px;
+        }
+        
+        .login__title {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .login__decoration {
+            width: 80%;
+            margin: 40px auto;
+
+        }
+
+        .login__form {
+            display: flex;
+            flex-direction: column;
+
+            .login__inputs {
+                display: flex;
+                flex-direction: column;
+                background-color: $color-white;
+                padding: 30px 0;
+
+                input, label {
+                    width: 80%;
+                    margin: 5px auto;
+                }
+
+                label {
+                    font-weight: 600;
+                }
+
+                input {
+                    border: none;
+                    background-color: $color-white;
+                    border-bottom: 1px solid $color-onyx;
+                    padding: 2px;
+                    font-size: 1rem;
+                    margin-bottom: 10px;
+
+                    &:focus {
+                       outline: none;
+                    }
+                }
+            }
+
+            .login__btns {
+                margin-top: 30px;
+                display: flex;
+                justify-content: space-between;
+
+                .login__register__btn {
+                    padding: 5px 10px;
+
+                    @include laptop {
+                        transform: translate(-50%, 0);
+                        padding: 20px 20px;
+                    }
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                .login__submit {
+                    font-size: 1rem;
+                    padding: 5px 10px;
+                    background-color: white;
+                    border: 1px solid $color-onyx;
+                    color: $color-onyx;
+
+                    @include laptop {
+                        transform: translate(50%, 0);
+                        padding: 20px 20px;
+                    }
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

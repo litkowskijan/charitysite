@@ -1,30 +1,22 @@
 import React from 'react';
-import 'firebase/compat/firestore';
-import { db } from '../../firebase';
-import { collection } from 'firebase/firestore';
-import { useCollection } from 'react-firebase-hooks/firestore';
-
+import Decoration from '../../Assets/Decoration.svg';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Home = () => {
-
-    const [value, loading, error] = useCollection(
-        collection(db, 'charities'),
-      );
-
     return (
-      <>
-        {error && <strong>Error</strong>}
-        {loading && <span>Collection: Loading...</span>}
-        {value && (
-          <>
-            {value.docs.map((item) => (
-              <h1>
-                  {item.data().name}
-              </h1>
-            ))}
-          </>
-        )}
-      </>
+        <div className='home__section section'>
+            <div className='home__container container'>
+                <div className='home__box'>
+                    <h2 className='home__title'>Zacznij pomagać!</h2>
+                    <p className='home__lead'>Oddaj niechciane rzeczy w zaufane ręce</p>
+                    <img src={Decoration} alt='decoration' className='home__decoration'></img>
+                    <div className='home__btns'>
+                        <RouterLink to='/login' className='home__btn'>ODDAJ<br />RZECZY</RouterLink>
+                        <RouterLink className='home__btn'>ZORGANIZUJ<br />ZBIÓRKĘ</RouterLink>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 }
 
