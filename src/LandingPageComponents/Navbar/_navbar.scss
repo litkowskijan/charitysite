@@ -1,3 +1,8 @@
+.navbar__color {
+    background-color: white !important;
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.5);
+}
+
 .navbar__section {
     min-height: 80px;
     height: 10vh;
@@ -44,10 +49,34 @@
 
             .navbar__btns {
                 margin-bottom: 30px;
+                display: flex;
+                gap: 10px;
+                
+                .navbar__hello {
+                    padding: 12px 22px;
+                    font-weight: 600;
+                }
+
+                .navbar__give__btn {
+                    padding: 10px 20px;
+                    border: 2px solid $color-mustard;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                .navbar__logout__btn {
+                    padding: 12px 22px;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
 
                 .navbar__login__btn {
-                    padding: 10px 20px;
-
+                    padding: 12px 22px;
+                    
                     &:hover {
                         text-decoration: underline;
                     }
@@ -56,6 +85,7 @@
                 .navbar__signup__btn {
                     padding: 10px 20px;
                     border: 2px solid $color-mustard;
+                    box-sizing: border-box;
 
                     &:hover {
                         text-decoration: underline;
@@ -123,14 +153,33 @@
             }
         }
         
-
+        .navbar__hello {
+            padding-right: 20px;
+        }
         .navbar__btns {
             padding: 20px;
             display: flex;
             justify-content: flex-end;
 
-            .navbar__login__btn {
+            .navbar__give__btn {
                 padding: 5px 15px;
+                border: 2px solid $color-mustard;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .navbar__logout__btn {
+                padding: 7px 17px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .navbar__login__btn {
+                padding: 7px 17px;
 
                 &:hover {
                     text-decoration: underline;

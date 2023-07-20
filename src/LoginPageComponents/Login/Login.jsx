@@ -1,9 +1,43 @@
-import React from 'react';
+import React, { useState, useContext }from 'react';
 import Decoration from '../../Assets/Decoration.svg';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { app } from '../../firebase';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { AuthContext } from '../../authcontext';
+
+const auth = getAuth(app);
 
 const Login = () => {
   
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const { setIsLoggedIn } = useContext(AuthContext);
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log('Zalogowano:', user.email);
+        navigate('/');
+        setIsLoggedIn(true);
+      })
+      .catch((error) => {
+        console.log('Błąd logowania:', error);
+      })
+  }
+
   return (
     <div className='login__section section'>
       <div className='login__container container'>
@@ -13,14 +47,14 @@ const Login = () => {
 
           <div className='login__inputs'>
             <label htmlFor='text'>E-mail</label>
-            <input type='text' id='text'></input>
+            <input type='text' id='text' onChange={handleEmail}></input>
             <label htmlFor='password'>Hasło</label>
-            <input type='password'></input>
+            <input type='password' id='password' onChange={handlePassword}></input>
           </div>
           
           <div className='login__btns'>
             <RouterLink to='/register' className='login__register__btn'>Załóż konto</RouterLink>
-            <button className='login__submit' type='submit'>Zaloguj się</button>
+            <button className='login__submit' type='submit' onClick={handleSubmit}>Zaloguj się</button>
           </div>
         </form>
       </div>
