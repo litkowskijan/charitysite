@@ -1,0 +1,87 @@
+.instruction__section {
+
+    .instruction__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .instruction__title {
+            text-align: center;
+            margin: 60px 0;
+            font-size: 2rem;
+        }
+
+        .instruction__decoration {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 60px;
+            max-width: 300px;
+        }
+    }
+}
+
+.instruction__section2 {
+    background-color: $color-white;
+
+    .instruction__box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0;
+
+        @include laptop {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .instruction__step {
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include laptop {
+                width: 23%;
+            }
+
+            .instruction__title {
+                margin: 10px 0;
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .instruction__line {
+                height: 3px;
+                width: 66%;
+                background-color: $color-onyx;
+                margin: 10px 0;
+            }
+
+            .instruction__lead {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.instruction__section3 {
+
+    .instruction__container {
+        display: flex;
+        justify-content: center;
+
+        .instruction__button {
+            height: 80px;
+            width: 180px;
+            line-height: 30px;
+            padding-top: 10px;
+            border: 1px solid $color-onyx;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 0 10px;
+            background-color: white;
+            margin: 40px;
+        }
+    }
+    
+}

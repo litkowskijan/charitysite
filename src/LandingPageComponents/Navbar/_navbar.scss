@@ -1,6 +1,9 @@
 .navbar__color {
-    background-color: white !important;
     box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.5);
+    
+    @include laptop {
+        background-color: white !important;
+    }
 }
 
 .navbar__section {
@@ -8,6 +11,8 @@
     height: 10vh;
     background-color: $color-mustard;
     position: fixed;
+    top: 0;
+    left: 0;
 
     @include laptop {
         min-height: 150px;

@@ -1,0 +1,41 @@
+.statistics__section {
+    background-color: $color-mustard;
+
+    .statistics__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        @include laptop {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .statistics__box {
+            display: flex;
+            flex-direction: column;
+            margin: 60px 0;
+            max-width: 400px;
+
+            @include laptop {
+                width: 30%;
+            }
+
+            .statistics__number {
+                font-size: 5rem;
+                text-align: center;
+                font-weight: 200;
+            }
+
+            .statistics__title {
+                margin: 10px -1px;
+                text-align: center;
+            }
+
+            .statistics__lead {
+                text-align: center;
+                margin: -1px;
+            }
+        }
+    }
+}

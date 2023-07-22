@@ -3,7 +3,7 @@ import { Link as ScrollLink} from 'react-scroll';
 import { Link as RouterLink} from 'react-router-dom';
 import { IoMdShirt, IoMdClose } from 'react-icons/io'
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { AuthContext } from '../../authcontext';
+import { AuthContext, useAuth } from '../../authcontext';
 import { app } from '../../firebase'
 import { getAuth, signOut } from 'firebase/auth';
 
@@ -21,7 +21,7 @@ const Navbar = () => {
         setHamburger('navbar__hamburger__box left500');
     }
     
-    const { isLoggedIn } = useContext(AuthContext);
+    const { isLoggedIn } = useAuth();
 
     const handleLogout = () => {
         signOut(auth)
@@ -71,7 +71,7 @@ const Navbar = () => {
                         
                     </div>
                     <ul className='navbar__menu'>
-                        <li className='navbar__menu__el'><ScrollLink className='first__el' to='#' smooth={true} ><RouterLink to='/'>Start</RouterLink></ScrollLink></li>
+                        <li className='navbar__menu__el'><RouterLink to='/'>Start</RouterLink></li>
                         <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >O co chodzi?</ScrollLink></li>
                         <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >O nas</ScrollLink></li>
                         <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >Fundacja i organizacje</ScrollLink></li>
@@ -102,7 +102,7 @@ const Navbar = () => {
                     }
                 </div>
                 <ul className='navbar__menu'>
-                    <li className='navbar__menu__el'><ScrollLink className='first__el' to='#' smooth={true} ><RouterLink to='/'>Start</RouterLink></ScrollLink></li>
+                    <li className='navbar__menu__el'><RouterLink to='/'>Start</RouterLink></li>
                     <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >O co chodzi?</ScrollLink></li>
                     <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >O nas</ScrollLink></li>
                     <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >Fundacja i organizacje</ScrollLink></li>

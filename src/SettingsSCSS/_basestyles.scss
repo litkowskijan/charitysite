@@ -3,6 +3,7 @@
 body {
     color: $color-onyx;
     font-family: $font-open-sans;
+    overflow-x: hidden;
 }
 
 a {
@@ -11,7 +12,7 @@ a {
 }
 
 .section {
-    width: 100vw;
+    width: 100%;
 }
 
 .container {
