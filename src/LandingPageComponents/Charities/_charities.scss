@@ -1,0 +1,129 @@
+.charities__section {
+    min-height: 100vh;
+
+    .charities__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .charities__title {
+            text-align: center;
+            margin: 80px 0 40px 0;
+            font-size: 2rem;
+        }
+
+        .charities__decoration {
+            width: 200px;
+            margin-bottom: 40px;
+        }
+
+        .charities__btns {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+
+            @include laptop {
+                flex-direction: row;
+            }
+
+            .charities__btn {
+                height: 80px;
+                width: 180px;
+                line-height: 30px;
+                border: none;
+                font-size: 1.3rem;
+                text-align: center;
+                background-color: white;
+                margin: 5px;
+                color: $color-onyx;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .charities__btn__selected {
+                border: 1px solid $color-onyx;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .charities__main__lead {
+            text-align: center;
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .charities__boxes {
+            width: 100%;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .charity__box {
+                height: 120px;
+                width: 100%;
+                max-width: 1000px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                border-bottom: 1px solid $color-onyx;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .charity__title {
+                    font-size: 1.2rem;
+                }
+
+                .charity__lead__row {
+
+                    @include laptop {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    .charity__lead1 {
+                        margin-bottom: 10px;
+                        padding-right: 10%;
+                    }
+
+                    .charity__lead2 {
+                        color: $color-gray;
+                        @include laptop {
+                            text-align: end;
+                        }
+                    }
+                }
+            }
+        }
+
+        .charities__page__btns {
+            display: flex;
+            margin-bottom: 50px;
+
+            .charities__page__btn {
+                padding: 10px 20px;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .charities__active__btn {
+                border: 1px solid $color-onyx;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

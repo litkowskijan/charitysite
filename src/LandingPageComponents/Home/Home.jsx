@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Decoration from '../../Assets/Decoration.svg';
 import { Link as RouterLink } from 'react-router-dom';
-import { AuthContext } from '../../authcontext';
+import { useAuth } from '../../authcontext';
 
 const Home = () => {
 
-    const { isLoggedIn } = useContext(AuthContext);
+    const { isLoggedIn } = useAuth();
 
     return (
         <div className='home__section section'>

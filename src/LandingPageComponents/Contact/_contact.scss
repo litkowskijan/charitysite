@@ -1,0 +1,164 @@
+.contact__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: linear-gradient(rgba(255,255,255, 0.8), rgba(255,255,255, 0.8)), url('../../Assets//Background-Contact-Form.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: 0 600px;
+    height: 800px;
+
+    @include laptop {
+        align-items: flex-end;
+        background-size: 80% 100%;
+        background-position: 0 0;
+    }
+
+    .contact__container {
+        display: flex;
+        justify-content: center;
+
+        @include laptop {
+            justify-content: flex-end;
+        }
+
+        .contact__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            width: 100%;
+
+            @include laptop {
+                max-width: 600px;
+                width: 50%;
+                margin: 150px 0 0 0;
+            }
+
+            .contact__title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .contact__decoration {
+                margin-bottom: 40px;
+            }
+
+            .contact__form {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .contact__form__1row {
+
+                    @include laptop {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    .contact__name__part {
+                        display: flex;
+                        flex-direction: column;
+
+                        @include laptop {
+                            width: 48%;
+                        }
+                    }
+
+                    .contact__email__part {
+                        display: flex;
+                        flex-direction: column;
+
+                        @include laptop {
+                            width: 48%;
+                        }
+                    }  
+
+                    label {
+                        font-weight: 600;
+                        margin: 5px 0;
+                    }
+
+                    input {
+                        height: 30px;
+                        border: none;
+                        border-bottom: 1px solid $color-gray;
+                        margin-bottom: 10px;
+                        padding: 5px;
+                        outline: none;
+                        background: transparent;
+
+                        &::placeholder {
+                            color: $color-gray;
+                        }
+                    }
+                }
+
+                label {
+                    font-weight: 600;
+                    margin: 5px 0;
+                }
+
+                textarea {
+                    width: 100%;
+                    resize: none;
+                    height: 150px;
+                    border: none;
+                    border-bottom: 1px solid $color-gray;
+                    margin-bottom: 10px;
+                    padding: 5px;
+                    outline: none;
+                    background: transparent;
+
+                    &::placeholder {
+                        font-family: $font-open-sans;
+                        color: $color-gray;
+                    }
+                }
+
+                .contact__form__button {
+                    height: 50px;
+                    width: 140px;
+                    line-height: 50px;
+                    border: 1px solid $color-onyx;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    background-color: white;
+                    margin-left: auto;
+                    color: $color-gray;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .contact__footer {
+        display: flex;
+        justify-content: space-between;
+
+        .contact__invisible {
+            display: none;
+
+            @include laptop {
+                display: block;
+            }
+        }
+
+        .contact__copyright {
+            font-size: 1.2rem;
+            margin-right: -64px;
+            padding-bottom: -5px;
+        }
+
+        .contact__footer__socials {
+
+            .contact__footer__social {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

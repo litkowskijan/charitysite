@@ -1,0 +1,61 @@
+.about__section {
+    background-color: $color-white;
+
+    @include laptop {
+        display: flex;
+        max-height: 700px;
+    }
+
+    .about__box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        @include laptop {
+            width: 50%;
+        }
+
+        .about__title {
+            margin: 40px 0;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .about__decoration {
+            width: 66%;
+            max-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .about__lead {
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 2.5rem;
+            padding: 0 20px;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }  
+
+        .about__signature__box {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+
+            .about__signature {
+                margin: 20px;
+            }
+        }
+    }
+
+    .about__people {
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+
+        @include laptop {
+            width: 50%;
+        }
+    }
+}

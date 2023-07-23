@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link as ScrollLink} from 'react-scroll';
 import { Link as RouterLink} from 'react-router-dom';
 import { IoMdShirt, IoMdClose } from 'react-icons/io'
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { AuthContext, useAuth } from '../../authcontext';
+import { useAuth } from '../../authcontext';
 import { app } from '../../firebase'
 import { getAuth, signOut } from 'firebase/auth';
 
@@ -71,11 +71,11 @@ const Navbar = () => {
                         
                     </div>
                     <ul className='navbar__menu'>
-                        <li className='navbar__menu__el'><RouterLink to='/'>Start</RouterLink></li>
-                        <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >O co chodzi?</ScrollLink></li>
-                        <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >O nas</ScrollLink></li>
-                        <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >Fundacja i organizacje</ScrollLink></li>
-                        <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >Kontakt</ScrollLink></li>
+                        <li className='navbar__menu__el first__el'><RouterLink to='/'>Start</RouterLink></li>
+                        <li className='navbar__menu__el'><ScrollLink to='instruction' smooth={true} offset={-130}>O co chodzi?</ScrollLink></li>
+                        <li className='navbar__menu__el'><ScrollLink to='about' smooth={true} offset={-140}>O nas</ScrollLink></li>
+                        <li className='navbar__menu__el'><ScrollLink to='charities' smooth={true} offset={-120}>Fundacja i organizacje</ScrollLink></li>
+                        <li className='navbar__menu__el'><ScrollLink to='contact' smooth={true} offset={0}>Kontakt</ScrollLink></li>
                     </ul>
                 </div>
                 <GiHamburgerMenu className='navbar__hamburger__open' onClick={showHamburger}></GiHamburgerMenu>
@@ -102,11 +102,11 @@ const Navbar = () => {
                     }
                 </div>
                 <ul className='navbar__menu'>
-                    <li className='navbar__menu__el'><RouterLink to='/'>Start</RouterLink></li>
-                    <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >O co chodzi?</ScrollLink></li>
-                    <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >O nas</ScrollLink></li>
-                    <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >Fundacja i organizacje</ScrollLink></li>
-                    <li className='navbar__menu__el'><ScrollLink to='#' smooth={true} >Kontakt</ScrollLink></li>
+                    <li className='navbar__menu__el first__el'><RouterLink className='first__el' to='/'>Start</RouterLink></li>
+                    <li className='navbar__menu__el'><ScrollLink to='instruction' smooth={true} offset={-60}>O co chodzi?</ScrollLink></li>
+                    <li className='navbar__menu__el'><ScrollLink to='about' smooth={true} offset={-80}>O nas</ScrollLink></li>
+                    <li className='navbar__menu__el'><ScrollLink to='charities' smooth={true} offset={-40}>Fundacja i organizacje</ScrollLink></li>
+                    <li className='navbar__menu__el'><ScrollLink to='contact' smooth={true} offset={-110}>Kontakt</ScrollLink></li>
                 </ul>
             </div>
         </div>

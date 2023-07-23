@@ -9,7 +9,7 @@ import Step4 from '../../Assets/Icon-4.svg'
 const Instruction = () => {
     return (
         <>
-            <div className='instruction__section section'>
+            <div className='instruction__section section' id='instruction'>
                 <div className='instruction__container container'>
                     <h2 className='instruction__title'>Wystarczą 4 proste kroki</h2>
                     <img className='instruction__decoration' src={Decoration} alt='decoration'></img>

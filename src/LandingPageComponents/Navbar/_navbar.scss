@@ -114,8 +114,10 @@
                 }
 
                 .first__el {
-                    border: 1px solid $color-onyx;
+                    a {
+                        border: 1px solid $color-onyx;
                     background-color: white;
+                    }
                 }
             }
         }
@@ -209,12 +211,12 @@
 
             .navbar__menu__el {
                 padding: 10px 0;
+
                 .first__el {
-                    border: 1px solid $color-onyx;
-                    padding: 5px 5px;
+                        border: 1px solid $color-onyx;
+                        padding: 5px 5px;
                 }
             }
-               
         }
     }
 }
