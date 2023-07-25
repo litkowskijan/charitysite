@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom'
 import Decoration from '../../Assets/Decoration.svg'
+import { useAuth } from '../../authcontext';
 import Step1 from '../../Assets/Icon-1.svg'
 import Step2 from '../../Assets/Icon-2.svg'
 import Step3 from '../../Assets/Icon-3.svg'
 import Step4 from '../../Assets/Icon-4.svg'
 
 const Instruction = () => {
+
+    const { isLoggedIn } = useAuth();
+
     return (
         <>
             <div className='instruction__section section' id='instruction'>
@@ -45,7 +49,12 @@ const Instruction = () => {
             </div>
             <div className='instruction__section3 section'>
                 <div className='instruction__container container'>
-                    <RouterLink to='/' className='instruction__button'>ODDAJ<br/>RZECZY</RouterLink>
+                    {isLoggedIn ?
+                        // don't work step1
+                        (<RouterLink to='/step1' className='instruction__button'>ODDAJ<br/>RZECZY</RouterLink>)
+                        :
+                        (<RouterLink to='/login' className='instruction__button'>ODDAJ<br/>RZECZY</RouterLink>)
+                    }
                 </div>
             </div>
         </>

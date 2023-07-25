@@ -1,0 +1,27 @@
+input[type=radio] {
+    height: 20px;
+    width: 20px;
+
+    &:checked {
+        background-color: red;
+    }
+}
+
+.form__section {
+    background-color: $color-white;
+    .form__container {
+        display: flex;
+        flex-direction: column;
+    
+        .form__content {
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+.form__option__selected {
+    background-color: yellow;
+}

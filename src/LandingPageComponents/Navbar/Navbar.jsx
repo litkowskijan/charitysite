@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link as ScrollLink} from 'react-scroll';
-import { Link as RouterLink} from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { IoMdShirt, IoMdClose } from 'react-icons/io'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useAuth } from '../../authcontext';
@@ -12,6 +12,7 @@ const auth = getAuth(app);
 const Navbar = () => {
 
     const [hamburger, setHamburger] = useState('navbar__hamburger__box left500');
+    const navigate = useNavigate();
     
     const showHamburger = () => {
         setHamburger('navbar__hamburger__box left0');
@@ -28,6 +29,7 @@ const Navbar = () => {
             .then(() => {
                 console.log('Wylogowano pomyślnie');
                 window.location.reload(false);
+                navigate('/');
             })
             .catch((error) => {
                 console.log('Błąd wylogowania:', error);
@@ -59,12 +61,12 @@ const Navbar = () => {
                             (<></>)
                         }
                         {isLoggedIn ?
-                            (<RouterLink to='/' className='navbar__give__btn'>Oddaj rzeczy</RouterLink>)
+                            (<RouterLink to='/step1' className='navbar__give__btn'>Oddaj rzeczy</RouterLink>)
                             :
                             (<RouterLink to='/login' className='navbar__login__btn'>Zaloguj</RouterLink>)
                         }
                         {isLoggedIn ?
-                            (<RouterLink to='/' className='navbar__logout__btn' onClick={handleLogout}>Wyloguj</RouterLink>)
+                            (<RouterLink to='/logout' className='navbar__logout__btn' onClick={handleLogout}>Wyloguj</RouterLink>)
                             :
                             (<RouterLink to='/register' className='navbar__signup__btn'>Załóż konto</RouterLink>)
                         }
@@ -91,7 +93,7 @@ const Navbar = () => {
                 }
                 <div className='navbar__btns'>
                     {isLoggedIn ?
-                        (<RouterLink to='/' className='navbar__give__btn'>Oddaj rzeczy</RouterLink>)
+                        (<RouterLink to='/step1' className='navbar__give__btn'>Oddaj rzeczy</RouterLink>)
                         :
                         (<RouterLink to='/login' className='navbar__login__btn'>Zaloguj</RouterLink>)
                     }

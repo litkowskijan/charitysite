@@ -1,9 +1,9 @@
-import React, { useState, useContext }from 'react';
+import React, { useState }from 'react';
 import Decoration from '../../Assets/Decoration.svg';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { app } from '../../firebase';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { AuthContext } from '../../authcontext';
+import { useAuth } from '../../authcontext';
 
 const auth = getAuth(app);
 
@@ -13,7 +13,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const { setIsLoggedIn } = useContext(AuthContext);
+  const { setIsLoggedIn } = useAuth();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);

@@ -104,3 +104,16 @@
 // };
 
 // export default Login;
+
+
+/*
+<div className='form__section section'>
+    <div className='form__container container'>
+        <span className="form__step">Krok 1/4</span>
+        <span className='form__title'>Zaznacz co chcesz oddać:</span>
+        <div className='form__content'>
+
+        </div>
+    </div>
+</div> 
+*/

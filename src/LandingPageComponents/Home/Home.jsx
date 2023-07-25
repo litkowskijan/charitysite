@@ -16,7 +16,7 @@ const Home = () => {
                     <img src={Decoration} alt='decoration' className='home__decoration'></img>
                     <div className='home__btns'>
                         {isLoggedIn ?
-                            (<RouterLink to='/' className='home__btn'>ODDAJ<br />RZECZY</RouterLink>)
+                            (<RouterLink to='/step1' className='home__btn'>ODDAJ<br />RZECZY</RouterLink>)
                             :
                             (<RouterLink to='/login' className='home__btn'>ODDAJ<br />RZECZY</RouterLink>)
                         }

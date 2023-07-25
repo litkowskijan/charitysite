@@ -1,0 +1,33 @@
+.logout__section {
+
+    .logout__container {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        padding-top: 160px;
+
+        @include laptop {
+            padding-top: 250px;
+        }
+
+        .logout__title {
+            margin: 0 auto;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .logout__decoration {
+            width: 80%;
+            margin: 40px auto;
+        }
+
+        .logout__btn {
+            padding: 10px;
+            background-color: white;
+            border: 1px solid $color-onyx;
+            width: 150px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}
