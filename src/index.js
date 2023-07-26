@@ -11,6 +11,7 @@ import Step1 from './Step1Components/step1';
 import Step2 from './Step2Components/step2';
 import Step3 from './Step3Components/step3';
 import Step4 from './Step4Components/step4';
+import SummaryPage from './SummaryComponents/summarypage';
 import './main.scss';
 
 
@@ -28,6 +29,7 @@ const Root = () => {
             <Route path='/step2' element={<Step2 />}/>
             <Route path='/step3' element={<Step3 />}/>
             <Route path='/step4' element={<Step4 />}/>
+            <Route path='/summary' element={<SummaryPage />}/>
           </Routes>
         </FormProvider>
       </AuthProvider>

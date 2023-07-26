@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useMainForm } from '../../formcontext';
+import { useNavigate } from 'react-router-dom';
 
 const Form4 = () => {
 
@@ -14,11 +15,13 @@ const Form4 = () => {
         setDeadlineTime,
         deadlineNotes, setDeadlineNotes,
     } = useMainForm();
+    const navigate = useNavigate();
 
     const inputOptions = ['Ulica', 'Miasto', 'Kod pocztowy', 'Numer telefonu', 'Data', 'Godzina'];
 
     const onSubmit = (data) => {
         console.log('Dane z formularza:', data);
+        navigate('/summary')
     };
 
     const handleInputChange = (option, value) => {
