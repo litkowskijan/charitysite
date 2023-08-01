@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './authcontext';
 import { FormProvider } from './formcontext';
-import LandingPage from './LandingPageComponents/landingpage.js'
+import LandingPage from './LandingPageComponents/landingpage';
 import LoginPage from './LoginPageComponents/loginpage';
 import RegisterPage from './RegisterPageComponents/registerpage'
 import LogoutPage from './LogoutPageComponents/logoutpage';
