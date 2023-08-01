@@ -38,6 +38,7 @@ const Form2 = () => {
                             onChange={handleSelectChange}
                             {...register('option', { required: 'Wybierz opcję' })}
                             defaultValue={amount}
+                            className='form2__select'
                         >
                             <option value=''>-- Wybierz --</option>
                             {options.map((option) => (
@@ -50,8 +51,8 @@ const Form2 = () => {
                         {errors.option && <p className='error'>{errors.option.message}</p>}
 
                         <div className='form__buttons'>
-                            <RouterLink to='/step1'>Wstecz</RouterLink>
-                            <button type='submit'>Dalej</button>
+                            <RouterLink className='form__step__back__btn' to='/step1'>Wstecz</RouterLink>
+                            <button className='form__step1__submit' type='submit'>Dalej</button>
                         </div>
                     </form>
                 </div>

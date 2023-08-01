@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as ScrollLink} from 'react-scroll';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { IoMdShirt, IoMdClose } from 'react-icons/io'
@@ -22,20 +22,23 @@ const Navbar = () => {
         setHamburger('navbar__hamburger__box left500');
     }
     
-    const { isLoggedIn } = useAuth();
+    const { user } = useAuth();
 
     const handleLogout = () => {
         signOut(auth)
             .then(() => {
                 console.log('Wylogowano pomyślnie');
-                window.location.reload(false);
-                navigate('/');
+                navigate('/logout');
             })
             .catch((error) => {
                 console.log('Błąd wylogowania:', error);
             })
     }
 
+    const handleHamburgerLogout = () => {
+        handleLogout();
+        hideHamburger();
+    }
     const [navbarColor, setNavbarColor] = useState('navbar__section section')
 
     const addColor = () => {
@@ -47,7 +50,14 @@ const Navbar = () => {
         }
     }
 
-    window.addEventListener('scroll', addColor)
+    useEffect(() => {
+        window.addEventListener('scroll', addColor)
+
+        return () => {
+            window.removeEventListener('scroll', addColor)
+        }
+        
+    }, [])
 
     return (
         <div className={navbarColor}>
@@ -55,22 +65,21 @@ const Navbar = () => {
                 <IoMdShirt className='navbar__logo'></IoMdShirt>
                 <div className='navbar__box'>
                     <div className='navbar__btns'>
-                        {isLoggedIn ? 
-                            (<div className='navbar__hello'>Cześć {auth.currentUser.email}!</div>)
+                        {user?.email ? 
+                            (<div className='navbar__hello'>Cześć {user?.email}!</div>)
                              : 
                             (<></>)
                         }
-                        {isLoggedIn ?
+                        {user?.email ?
                             (<RouterLink to='/step1' className='navbar__give__btn'>Oddaj rzeczy</RouterLink>)
                             :
                             (<RouterLink to='/login' className='navbar__login__btn'>Zaloguj</RouterLink>)
                         }
-                        {isLoggedIn ?
-                            (<RouterLink to='/logout' className='navbar__logout__btn' onClick={handleLogout}>Wyloguj</RouterLink>)
+                        {user?.email ?
+                            (<button className='navbar__logout__btn' onClick={handleLogout}>Wyloguj</button>)
                             :
                             (<RouterLink to='/register' className='navbar__signup__btn'>Załóż konto</RouterLink>)
-                        }
-                        
+                        } 
                     </div>
                     <ul className='navbar__menu'>
                         <li className='navbar__menu__el first__el'><RouterLink to='/'>Start</RouterLink></li>
@@ -86,29 +95,29 @@ const Navbar = () => {
                 <div>
                     <IoMdClose className='navbar__hamburger__exit' onClick={hideHamburger}></IoMdClose>
                 </div>
-                {isLoggedIn ? 
-                        (<div className='navbar__hello'>Cześć {auth.currentUser.email}!</div>)
+                {user?.email ? 
+                        (<div className='navbar__hello'>Cześć {user?.email}!</div>)
                          : 
                         (<></>)
                 }
                 <div className='navbar__btns'>
-                    {isLoggedIn ?
-                        (<RouterLink to='/step1' className='navbar__give__btn'>Oddaj rzeczy</RouterLink>)
+                    {user?.email ?
+                        (<RouterLink to='/step1' className='navbar__give__btn' onClick={hideHamburger}>Oddaj rzeczy</RouterLink>)
                         :
-                        (<RouterLink to='/login' className='navbar__login__btn'>Zaloguj</RouterLink>)
+                        (<RouterLink to='/login' className='navbar__login__btn' onClick={hideHamburger}>Zaloguj</RouterLink>)
                     }
-                    {isLoggedIn ?
-                        (<RouterLink to='/' className='navbar__logout__btn' onClick={handleLogout}>Wyloguj</RouterLink>)
+                    {user?.email ?
+                        (<RouterLink to='/' className='navbar__logout__btn' onClick={handleHamburgerLogout}>Wyloguj</RouterLink>)
                         :
-                        (<RouterLink to='/register' className='navbar__signup__btn'>Załóż konto</RouterLink>)
+                        (<RouterLink to='/register' className='navbar__signup__btn' onClick={hideHamburger}>Załóż konto</RouterLink>)
                     }
                 </div>
                 <ul className='navbar__menu'>
-                    <li className='navbar__menu__el first__el'><RouterLink className='first__el' to='/'>Start</RouterLink></li>
-                    <li className='navbar__menu__el'><ScrollLink to='instruction' smooth={true} offset={-60}>O co chodzi?</ScrollLink></li>
-                    <li className='navbar__menu__el'><ScrollLink to='about' smooth={true} offset={-80}>O nas</ScrollLink></li>
-                    <li className='navbar__menu__el'><ScrollLink to='charities' smooth={true} offset={-40}>Fundacja i organizacje</ScrollLink></li>
-                    <li className='navbar__menu__el'><ScrollLink to='contact' smooth={true} offset={-110}>Kontakt</ScrollLink></li>
+                    <li className='navbar__menu__el first__el'><RouterLink className='first__el' to='/' onClick={hideHamburger}>Start</RouterLink></li>
+                    <li className='navbar__menu__el'><ScrollLink to='instruction' smooth={true} offset={-60} onClick={hideHamburger}>O co chodzi?</ScrollLink></li>
+                    <li className='navbar__menu__el'><ScrollLink to='about' smooth={true} offset={-80} onClick={hideHamburger}>O nas</ScrollLink></li>
+                    <li className='navbar__menu__el'><ScrollLink to='charities' smooth={true} offset={-40} onClick={hideHamburger}>Fundacja i organizacje</ScrollLink></li>
+                    <li className='navbar__menu__el'><ScrollLink to='contact' smooth={true} offset={-110} onClick={hideHamburger}>Kontakt</ScrollLink></li>
                 </ul>
             </div>
         </div>

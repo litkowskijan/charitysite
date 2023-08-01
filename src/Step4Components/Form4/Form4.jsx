@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useMainForm } from '../../formcontext';
 import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom'
 
 const Form4 = () => {
 
@@ -78,6 +79,7 @@ const Form4 = () => {
                         </div>
 
                         <div className='form__buttons'>
+                        <RouterLink className='form__step__back__btn' to='/step2'>Wstecz</RouterLink>
                             <button type='submit'>Submit</button>
                         </div>
                     </form>

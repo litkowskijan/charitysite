@@ -13,6 +13,7 @@ import Step3 from './Step3Components/step3';
 import Step4 from './Step4Components/step4';
 import SummaryPage from './SummaryComponents/summarypage';
 import './main.scss';
+import Navbar from './LandingPageComponents/Navbar/Navbar';
 
 
 const Root = () => {
@@ -20,6 +21,7 @@ const Root = () => {
     <BrowserRouter>
       <AuthProvider>
         <FormProvider>
+          <Navbar />
           <Routes>
             <Route path='/' element={<LandingPage />} />
             <Route path='/login' element={<LoginPage />} />

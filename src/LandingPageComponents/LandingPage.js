@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Navbar from './Navbar/Navbar';
 import Home from './Home/Home';
 import Statistics from './Statistics/Statistics';
 import Instruction from './Instruction/Instruction';
@@ -11,7 +10,6 @@ import Contact from './Contact/Contact';
 function LandingPage() {
   return (
     <>
-      <Navbar />
       <Home />
       <Statistics />
       <Instruction />

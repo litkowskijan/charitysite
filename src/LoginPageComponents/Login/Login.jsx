@@ -3,7 +3,6 @@ import Decoration from '../../Assets/Decoration.svg';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { app } from '../../firebase';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useAuth } from '../../authcontext';
 
 const auth = getAuth(app);
 
@@ -12,8 +11,6 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
-  const { setIsLoggedIn } = useAuth();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -31,7 +28,6 @@ const Login = () => {
         const user = userCredential.user;
         console.log('Zalogowano:', user.email);
         navigate('/');
-        setIsLoggedIn(true);
       })
       .catch((error) => {
         console.log('Błąd logowania:', error);

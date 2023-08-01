@@ -9,7 +9,7 @@ import Step4 from '../../Assets/Icon-4.svg'
 
 const Instruction = () => {
 
-    const { isLoggedIn } = useAuth();
+    const { user } = useAuth();
 
     return (
         <>
@@ -49,8 +49,7 @@ const Instruction = () => {
             </div>
             <div className='instruction__section3 section'>
                 <div className='instruction__container container'>
-                    {isLoggedIn ?
-                        // don't work step1
+                    {user?.email ?
                         (<RouterLink to='/step1' className='instruction__button'>ODDAJ<br/>RZECZY</RouterLink>)
                         :
                         (<RouterLink to='/login' className='instruction__button'>ODDAJ<br/>RZECZY</RouterLink>)

@@ -5,7 +5,7 @@ import { useAuth } from '../../authcontext';
 
 const Home = () => {
 
-    const { isLoggedIn } = useAuth();
+    const { user } = useAuth();
 
     return (
         <div className='home__section section'>
@@ -15,7 +15,7 @@ const Home = () => {
                     <p className='home__lead'>Oddaj niechciane rzeczy w zaufane ręce</p>
                     <img src={Decoration} alt='decoration' className='home__decoration'></img>
                     <div className='home__btns'>
-                        {isLoggedIn ?
+                        {user?.email ?
                             (<RouterLink to='/step1' className='home__btn'>ODDAJ<br />RZECZY</RouterLink>)
                             :
                             (<RouterLink to='/login' className='home__btn'>ODDAJ<br />RZECZY</RouterLink>)

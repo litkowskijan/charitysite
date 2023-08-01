@@ -35,6 +35,7 @@ const Form3 = () => {
                             {...register('location', { required: 'Wybierz miasto' })}
                             value={location}
                             onChange={(e) => setLocation(e.target.value)}
+                            className='form3__select'
                         >
                             <option value=''>-- Wybierz miasto --</option>
                             {cities.map((city) => (
@@ -45,31 +46,33 @@ const Form3 = () => {
                         </select>
                         {errors.location && <p className='error'>{errors.location.message}</p>}
                         
-                        <div className='form__options__title'>Komu chcesz pomóc?</div>
-                        <div className='form__options'>
+                        <div className='form3__options__title'>Komu chcesz pomóc?</div>
+                        <div className='form3__options'>
                             {options.map((option) => (
                                 <div
                                     key={option}
-                                    className={clsx('form__option', { 'form__option__selected': helpTarget === option })}
+                                    className={clsx('form3__option', { 'form__option__selected': helpTarget === option })}
                                     onClick={() => handleCheckboxChange(option)}
                                 >
                                     {option}
                                 </div>
                             ))}
                         </div>
-                        {isOptionSelected ? null : <p className='error'>Wybierz przynajmniej jedną opcję.</p>}
-
-                        <span className='form__organization__title'>Wpisz nazwę konkretnej organizacji (opcjonalnie)</span>
-                        <input
-                            type='text'
-                            value={organization}
-                            onChange={(e) => setOrganization(e.target.value)}
-                            placeholder='Wpisz swoją wiadomość...'
-                        />
+                        {isOptionSelected ? null : <p className='form__step1__error'>Wybierz przynajmniej jedną opcję.</p>}
+                        
+                        <div className='form3__organization__box'>
+                            <span className='form__organization__title'>Wpisz nazwę konkretnej organizacji (opcjonalnie)</span>
+                            <input
+                                type='text'
+                                value={organization}
+                                onChange={(e) => setOrganization(e.target.value)}
+                                placeholder='Wpisz swoją wiadomość...'
+                            />
+                        </div>
 
                         <div className='form__buttons'>
-                            <RouterLink to='/step2'>Wstecz</RouterLink>
-                            <button type='submit'>Dalej</button>
+                            <RouterLink className='form__step__back__btn' to='/step2'>Wstecz</RouterLink>
+                            <button className='form__step1__submit' type='submit'>Dalej</button>
                         </div>
                     </form>
                 </div>

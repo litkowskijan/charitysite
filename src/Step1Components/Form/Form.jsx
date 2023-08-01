@@ -34,10 +34,10 @@ const Form = () => {
                 <span className="form__step">Krok 1/4</span>
                 <span className='form__title'>Zaznacz co chcesz oddać:</span>
                 <div className='form__content'>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form className='form__step1' onSubmit={handleSubmit(onSubmit)}>
                         {options.map((option) => (
-                            <label key={option.value}>
-                                <input
+                            <label className='form__step1__label' key={option.value}>
+                                <input className='form__step1__input'
                                     type='radio'
                                     name='options'
                                     value={option.value}
@@ -45,13 +45,13 @@ const Form = () => {
                                     {...register('options', { required: 'Wybierz opcję' })}
                                 />
                                     {option.value}
-                                </label>
+                            </label>
                         ))}
 
-                        {errors.options && <p className='error'>{errors.options.message}</p>}
+                        {errors.options && <p className='form__step1__error'>{errors.options.message}</p>}
                     
                         <div className='form__buttons'>
-                            <button type='submit'>Dalej</button>
+                            <button className='form__step1__submit' type='submit'>Dalej</button>
                         </div>
                     </form>
                 </div>

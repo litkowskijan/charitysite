@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Decoration from '../../Assets/Decoration.svg';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { app } from '../../firebase'
 import { getAuth, signInWithEmailAndPassword ,createUserWithEmailAndPassword} from 'firebase/auth';
-import { AuthContext } from '../../authcontext';
 
 const auth = getAuth(app);
 
@@ -14,7 +13,6 @@ const Register = () => {
   const [confirmPassword, setComfirmPassword] = useState('');
   const navigate = useNavigate();
 
-  const { setIsLoggedIn } = useContext(AuthContext);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -47,7 +45,7 @@ const Register = () => {
             const user = userCredential.user;
             console.log('Zalogowano po rejestracji:', user.email);
             navigate('/');
-            setIsLoggedIn(true);
+  
           })
           .catch((error) => {
             console.log('Błąd logowania po rejestracji:', error);

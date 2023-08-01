@@ -1,27 +1,189 @@
-input[type=radio] {
-    height: 20px;
-    width: 20px;
-    border: 1px solid black;
-    &:checked {
-        background-color: red;
-    }
-}
-
 .form__section {
-    background-color: $color-white;
+    background-color: $color-form-mobile;
+    height: 800px;
+    background-image: url('../../Assets/Background-Form.jpg');
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    background-position: right 400px;
+
+    @include laptop {
+        height: 600px;
+        background-position: right 0;
+        background-size: 100% 100%;
+        background-color: $color-form;
+    }
+
+    @include desktop {
+        background-size: auto 100%;
+    }
+
     .form__container {
         display: flex;
         flex-direction: column;
-    
-        .form__content {
-            form {
-                display: flex;
-                flex-direction: column;
+        justify-content: center;
+        min-height: 55%;
+
+        @include laptop {
+            height: 100%;
+        }
+
+        .form__step {
+            font-size: 0.8rem;
+            color: $color-onyx;
+
+            @include laptop {
+                font-size: 1rem;
             }
         }
-    }
-}
 
-.form__option__selected {
-    background-color: yellow;
+        .form__title {
+            margin: 15px 0;
+            font-weight: 600;
+
+            @include laptop {
+                font-size: 1.2rem;
+            }
+        }
+
+        .form__content {
+
+            //step1
+            .form__step1 {
+                display: flex;
+                flex-direction: column;
+
+                .form__step1__label {
+                    display: flex;             
+                    margin: 5px 0;
+                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                    
+                    @include laptop {
+                        font-size: 1.2rem;
+                        margin: 10px 0;
+                    }
+                }
+
+                .form__step1__input {
+                    height: 20px;
+                    width: 20px;
+                    border: 1px solid $color-onyx;
+                    margin: 0 5px 0 0;
+
+                    &:checked {
+                        background-color: $color-mustard;
+                    }
+                }
+            }
+
+            .form__step1__error {
+                color: red;
+                font-size: 0.8rem;
+                margin-bottom: 10px;
+            }
+
+            .form__buttons {
+                margin-top: 10px;
+                
+                .form__step1__submit {
+                    padding: 10px 20px;
+                    border: 1px solid $color-onyx;
+                    background-color: transparent;
+                    color: $color-onyx;
+                    font-size: 1rem;
+                    font-family: $font-open-sans;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                    @include laptop {
+                        font-size: 1.2rem;
+                        margin: 10px 0;
+                    }
+                }
+
+                .form__step__back__btn {
+                    padding: 10px 20px;
+                    border: 1px solid $color-onyx;
+                    color: $color-onyx;
+                    margin-right: 10px;
+                    background-color: transparent;
+                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                    @include laptop {
+                        font-size: 1.2rem;
+                        margin: 10px 20px 0 0;
+                    }
+                }
+            }
+            //step1
+
+            //step2
+            .form2__select {
+                width: 100%;
+                max-width: 200px;
+                height: 25px;
+                margin-bottom: 30px;
+                background-color: transparent;
+            }
+            //step2
+
+            //step3
+            .form3__select {
+                width: 100%;
+                max-width: 200px;
+                height: 25px;
+                margin-bottom: 20px;
+                background-color: transparent;
+            }
+
+            .form3__options__title {
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            .form3__options {
+                display: flex;
+                flex-wrap: wrap;
+                max-width: 500px;
+                margin-bottom: 10px;
+
+                .form3__option {
+                    margin: 5px;
+                    padding: 5px 10px;
+                    border: 1px solid $color-onyx;
+                }
+
+                .form__option__selected {
+                    background-color: $color-mustard;
+                }
+            }
+
+            .form__organization__title {
+                font-weight: 600;
+            }
+            
+            .form3__organization__box {
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    width: 100%;
+                    max-width: 400px;
+                    height: 25px;
+                    margin-bottom: 20px;
+                    background-color: transparent;
+                    border: 1px solid $color-onyx;
+                    margin-top: 10px;
+                }
+            }
+            //step3
+        }
+    }
 }
