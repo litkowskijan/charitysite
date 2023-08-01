@@ -15,7 +15,6 @@ import './main.scss';
 import Navbar from './LandingPageComponents/Navbar/Navbar';
 import LandingPage from './LandingPageComponents/landingpage';
 
-
 const Root = () => {
   return (
     <BrowserRouter>
