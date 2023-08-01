@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './authcontext';
 import { FormProvider } from './formcontext';
-import LandingPage from '.././LandingPageComponents/landingpage';
 import LoginPage from './LoginPageComponents/loginpage';
 import RegisterPage from './RegisterPageComponents/registerpage'
 import LogoutPage from './LogoutPageComponents/logoutpage';
@@ -14,6 +13,7 @@ import Step4 from './Step4Components/step4';
 import SummaryPage from './SummaryComponents/summarypage';
 import './main.scss';
 import Navbar from './LandingPageComponents/Navbar/Navbar';
+import LandingPage from './LandingPageComponents/landingpage';
 
 
 const Root = () => {
